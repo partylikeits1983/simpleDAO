@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.6.11;
-
+// example taken from https://ethereum.org/en/developers/docs/smart-contracts/
 contract VendingMachine {
 
     // Declare state variables of the contract
