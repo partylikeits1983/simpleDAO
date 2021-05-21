@@ -14,6 +14,6 @@ A smart contract that functions as a decentralized autonomous organization. This
 
 5) Only the chairperson can give the right to vote in the DAO to other addresses.
 
-6) If the majority of the DAO members who voted voted "buy_cupcakes" then the DAO
-will send 1 ether to the digital vending machine and in return will recieve one cupcake.
+6) If the majority of the DAO members who voted selected "buy_cupcakes", then the DAO
+will send 1 ether to the digital vending machine and in return the DAO will recieve one cupcake.
 
