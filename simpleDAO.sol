@@ -3,9 +3,9 @@ pragma solidity >=0.7.0 <0.9.0;
 /// @title Simple DAO smart contract.
 contract simpleDAO {
     
-    // This simple DAO smart contract sends ether to the predefined address only if
-    // the majority of the members agree to send ether to the predefined address.
-    // If the majority decides not to send ether, the members who deposited ether 
+    // This simple proof of concept DAO smart contract sends ether to the digital vending machine
+    // only if the majority of the DAO members vote "yes" to buy digital cookies.
+    // If the majority of the DAO members decide not to send ether, the members who deposited ether 
     // are able to withdraw the ether they deposited.
     
    
