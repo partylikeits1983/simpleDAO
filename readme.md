@@ -4,7 +4,7 @@ A smart contract that functions as a decentralized autonomous organization. This
 
 ----
 <p align="center">
-   <img src="/doc/Animated GIF-source.gif">
+   <img src="/doc/graphic.png">
 </p>
 
 #### Basic instructions to run:
