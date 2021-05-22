@@ -3,6 +3,10 @@
 A smart contract that functions as a decentralized autonomous organization. This is in development (*i.e.* not extensively tested for deploying on the Ethereum mainnet). It has been tested using [Remix](https://remix.ethereum.org).
 
 ----
+<p align="center">
+   <img src="/doc/Animated GIF-source.gif">
+</p>
+
 #### Basic instructions to run:
 1) Open [Remix](https://remix.ethereum.org) and deploy the vending machine solidity contract first and then the simpleDAO contract. 
 
