@@ -8,16 +8,28 @@ A smart contract that functions as a decentralized autonomous organization. This
 </p>
 
 #### Basic instructions to run:
-1) Open [Remix](https://remix.ethereum.org) and deploy the vending machine solidity contract first and then the simpleDAO contract. 
+1) Open [Remix](https://remix.ethereum.org) and deploy the vending machine solidity contract first and then the simpleDAO contract. You can import this repo into the Remix IDE directly or simply copy and paste the code.
 
-2) Copy and paste the address of the vending machine into the simpleDAO constructor.
+2) Since solidity is a statically typed programming language you must compile it before deploying the smart contract. 
 
-3) Specify how long members will be allowed to vote (seconds)
+<p align="center">
+   <img src="/doc/sc1.png">
+</p>
 
-4) add in name of proposals: ["buy_cupcakes", "no_cupcakes"]
+3) Copy and paste the address of the vending machine into the simpleDAO constructor.
 
-5) Only the chairperson can give the right to vote in the DAO to other addresses.
+4) Specify how long members will be allowed to vote (seconds)
 
-6) If the majority of the DAO members who voted selected "buy_cupcakes", then the DAO
+5) add in name of proposals: ["buy_cupcakes", "no_cupcakes"]
+
+
+<p align="center">
+   <img src="/doc/sc1.png">
+</p>
+
+
+6) Only the chairperson can give the right to vote in the DAO to other addresses.
+
+7) If the majority of the DAO members who voted selected "buy_cupcakes", then the DAO
 will send 1 ether to the digital vending machine and in return the DAO will recieve one cupcake.
 
