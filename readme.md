@@ -35,6 +35,8 @@ A smart contract that functions as a decentralized autonomous organization. This
 will send 1 ether to the digital vending machine and in return the DAO will recieve one cupcake.
 
 
+----
+
 
 This code is essentially a conglomeration of functions of a few solidity code examples from the documentation that I liked. If you like this tutorial code you can send me some ETH at: 
 
