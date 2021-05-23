@@ -84,7 +84,7 @@ contract simpleDAO {
         if (block.timestamp > voteEndTime)
             revert voteAlreadyEnded();
             
-        require(msg.value >= 1 ether, "You must deposit at least 1 ETH into DAO");
+        require(DAObalance <= 1 ether, "1 Ether balance has been reached");
         
         DAObalance = address(this).balance;
         balances[msg.sender]+=msg.value;
@@ -161,7 +161,11 @@ contract simpleDAO {
           
         require(
             ended == true,
-            "Must tally vote first");  
+            "Must count vote first");  
+            
+        require(
+            DAObalance >= 1 ether,
+            "Not enough balance in DAO required to buy cupcake. Members may withdraw deposited ether.");
             
         require(
             decision == 0,
@@ -177,6 +181,3 @@ contract simpleDAO {
         }
     
 }
-
-
-
