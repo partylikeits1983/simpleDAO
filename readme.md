@@ -3,6 +3,8 @@
 A smart contract that functions as a decentralized autonomous organization. This is in development (*i.e.* not extensively tested for deploying on the Ethereum mainnet). It has been tested using [Remix](https://remix.ethereum.org).
 
 ----
+## Basic schema of what the DAO does.
+
 <p align="center">
    <img src="/doc/schema.png">
 </p>
@@ -27,9 +29,12 @@ A smart contract that functions as a decentralized autonomous organization. This
    <img src="/doc/sc2.png">
 </p>
 
-
 6) Only the chairperson can give the right to vote in the DAO to other addresses.
 
 7) If the majority of the DAO members who voted selected "buy_cupcakes", then the DAO
 will send 1 ether to the digital vending machine and in return the DAO will recieve one cupcake.
+
+
+
+This code is essentially a conglomeration of functions of a few solidity code examples from the documentation that I liked. If you like this tutorial code you can send me some ETH at: 
 
