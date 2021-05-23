@@ -24,7 +24,7 @@ A smart contract that functions as a decentralized autonomous organization. This
 
 
 <p align="center">
-   <img src="/doc/sc1.png">
+   <img src="/doc/sc2.png">
 </p>
 
 
