@@ -81,6 +81,8 @@ contract simpleDAO {
     // members must deposit at least 1 eth into DAO 
     // this is to avoid complications during withdrawl if the DAO voted to buy cupcakes
     function DepositEth() public payable {
+        DAObalance = address(this).balance;
+        
         if (block.timestamp > voteEndTime)
             revert voteAlreadyEnded();
             
