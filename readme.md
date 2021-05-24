@@ -1,6 +1,6 @@
 #### Simple DAO solidity smart contract
 
-A smart contract that functions as a decentralized autonomous organization. This is in development (*i.e.* not extensively tested for deploying on the Ethereum mainnet). It has been tested using [Remix](https://remix.ethereum.org).
+A smart contract that functions as a simple decentralized autonomous organization. This is in development (*i.e.* not extensively tested for deploying on the Ethereum mainnet). It has been tested using [Remix](https://remix.ethereum.org).
 
 ----
 ## Basic schema of what the DAO does.
@@ -22,7 +22,7 @@ A smart contract that functions as a decentralized autonomous organization. This
 
 4) Specify how long members will be allowed to vote (seconds)
 
-5) add in name of proposals: ["buy_cupcakes", "no_cupcakes"]
+5) Add in name of proposals: ["buy_cupcakes", "no_cupcakes"]
 
 
 <p align="center">
