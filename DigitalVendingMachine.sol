@@ -22,7 +22,7 @@ contract VendingMachine {
         cupcakeBalances[address(this)] += amount;
     }
 
-    // Allow anyone to purchase cupcakes
+    // Allow anyone to purchase cupcakes Github test
     function purchase(uint amount) public payable {
         require(msg.value >= amount * 1 ether, "You must pay at least 1 ETH per cupcake");
         require(cupcakeBalances[address(this)] >= amount, "Not enough cupcakes in stock to complete this purchase");
