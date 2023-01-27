@@ -1,14 +1,15 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.7.0 <0.9.0;
+pragma solidity 0.8.17;
 /// @title Simple DAO smart contract.
+
+import "./DigitalVendingMachine.sol";
+
 contract simpleDAO {
-    
     // This simple proof of concept DAO smart contract sends ether to the digital vending machine
     // only if the majority of the DAO members vote "yes" to buy digital cookies.
     // If the majority of the DAO members decide not to send ether, the members who deposited ether 
     // are able to withdraw the ether they deposited.
     
-   
     // address of vending machine
     address payable public VendingMachineAddress;
     
@@ -21,13 +22,12 @@ contract simpleDAO {
     mapping(address=>uint) balances;
     
     // proposal decision of voters 
-    uint decision;
+    uint public decision;
 
     // default set as false 
     // makes sure votes are counted before ending vote
-    bool ended;
+    bool public ended;
     
-
     struct Voter {
         uint weight; // weight is accumulated by delegation
         bool voted;  // if true, that person already voted
@@ -62,6 +62,7 @@ contract simpleDAO {
         uint _voteTime,
         string[] memory proposalNames
     ) {
+
         VendingMachineAddress = _VendingMachineAddress;
         chairperson = msg.sender;
         
@@ -76,27 +77,25 @@ contract simpleDAO {
             }));
         }
     }
-    
+
+
     // anyone can deposit ether to the DAO smart contract
     // members must deposit at least 1 eth into DAO 
     // this is to avoid complications during withdrawl if the DAO voted to buy cupcakes
     function DepositEth() public payable {
         DAObalance = address(this).balance;
         
-        if (block.timestamp > voteEndTime)
+        if (block.timestamp > voteEndTime) {
             revert voteAlreadyEnded();
-            
+        }
         require(DAObalance <= 1 ether, "1 Ether balance has been reached");
         
-        DAObalance = address(this).balance;
         balances[msg.sender]+=msg.value;
     }
-    
-    
-    
+
+
     // only the chairperson can decide who can vote
     function giveRightToVote(address voter) public {
-
         require(
             msg.sender == chairperson,
             "Only chairperson can give right to vote."
@@ -120,16 +119,13 @@ contract simpleDAO {
         proposals[proposal].voteCount += sender.weight;
     }
 
+
     // winningProposal must be executed before EndVote
-    function countVote() public
-            returns (uint winningProposal_)
-            
-    {
-        require(
-            block.timestamp > voteEndTime,
-            "Vote not yet ended.");
+    function countVote() public returns (uint winningProposal_) {
+        require(block.timestamp > voteEndTime, "Vote not yet ended.");
         
         uint winningVoteCount = 0;
+
         for (uint p = 0; p < proposals.length; p++) {
             if (proposals[p].voteCount > winningVoteCount) {
                 winningVoteCount = proposals[p].voteCount;
@@ -145,15 +141,17 @@ contract simpleDAO {
    // Individuals can only withdraw what they deposited.
    // After EndVote function is run and if proposal "buy_cupcakes" won,
    // users will not be able to withdraw ether
-    function withdraw(uint amount) public{
-        if(balances[msg.sender]>=amount){
-        balances[msg.sender]-=amount;
+    function withdraw(uint amount) public {
+        require(balances[msg.sender] >= amount, "amount > balance");
+
+        balances[msg.sender]-= amount;
         payable(msg.sender).transfer(amount);
+
         DAObalance = address(this).balance;
-        }
+        
     }
-   
-   
+
+
     // ends the vote
     // if DAO decided not to buy cupcakes members can withdraw deposited ether
     function EndVote() public {
@@ -171,8 +169,7 @@ contract simpleDAO {
             
         require(
             decision == 0,
-            "DAO decided to not buy cupcakes. Members may withdraw deposited ether.");
-            
+            "DAO decided to not buy cupcakes. Members may withdraw deposited ether."); 
             
         if (DAObalance  < 1 ether) revert();
             (bool success, ) = address(VendingMachineAddress).call{value: 1 ether}(abi.encodeWithSignature("purchase(uint256)", 1));
@@ -180,6 +177,12 @@ contract simpleDAO {
             
         DAObalance = address(this).balance;
   
-        }
-    
+    }
+
+
+    function checkCupCakeBalance() public view returns (uint) {
+        VendingMachine vendingMachine = VendingMachine(VendingMachineAddress);
+        return vendingMachine.cupcakeBalances(address(this));
+    }
+
 }

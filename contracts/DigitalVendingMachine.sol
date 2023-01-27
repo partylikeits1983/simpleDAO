@@ -1,8 +1,7 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.6.11;
+pragma solidity 0.8.17;
 /// @title vending machine smart contract.
 contract VendingMachine {
-
 
     // Declare state variables of the contract
     address public owner;
@@ -11,7 +10,7 @@ contract VendingMachine {
     // When 'VendingMachine' contract is deployed:
     // 1. set the deploying address as the owner of the contract
     // 2. set the deployed smart contract's cupcake balance to 100
-    constructor() public {
+    constructor() {
         owner = msg.sender;
         cupcakeBalances[address(this)] = 100;
     }
@@ -29,4 +28,5 @@ contract VendingMachine {
         cupcakeBalances[address(this)] -= amount;
         cupcakeBalances[msg.sender] += amount;
     }
+
 }
