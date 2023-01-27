@@ -37,6 +37,19 @@ will send 1 ether to the digital vending machine and in return the DAO will reci
 
 ----
 
+How to run tests:
+
+```
+npm i
+```
+
+```
+npx hardhat test test/SimpleDAO.test.ts
+```
+
+
+----
+
 
 This code is essentially a conglomeration of functions of a few solidity code examples from the documentation that I liked.
 
