@@ -12,7 +12,7 @@ A smart contract that functions as a simple decentralized autonomous organizatio
 #### Basic instructions to run:
 1) Open [Remix](https://remix.ethereum.org) and deploy the vending machine solidity contract first and then the simpleDAO contract. You can import this repo into the Remix IDE directly or simply copy and paste the code.
 
-2) Since solidity is a statically typed programming language you must compile it before deploying the smart contract. 
+2) Solidity is a statically typed programming language and you must compile the code before deploying the smart contract. 
 
 <p align="center">
    <img src="/doc/sc1.png">
